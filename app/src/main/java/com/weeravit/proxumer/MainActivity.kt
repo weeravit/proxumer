@@ -6,6 +6,10 @@ import androidx.core.content.ContextCompat
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.ncapdevi.fragnav.FragNavController
+import com.weeravit.proxumer.achievement.AchievementFragment
+import com.weeravit.proxumer.home.HomeFragment
+import com.weeravit.proxumer.profile.ProfileFragment
+import com.weeravit.proxumer.wallet.WalletFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), FragNavController.RootFragmentListener {

@@ -21,9 +21,9 @@
         android:id="@+id/text_total_goal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/spacing_large"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/list_goal_saving"
         tools:text="3 Goals" />
@@ -32,10 +32,10 @@
         android:id="@+id/text_all_saving"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="All Saving"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:text="@string/goal_saving_all_saving"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_medium"
         app:layout_constraintBottom_toBottomOf="@id/text_current_saving"
         app:layout_constraintEnd_toStartOf="@id/text_current_saving" />
 
@@ -43,9 +43,9 @@
         android:id="@+id/text_current_saving"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/spacing_medium"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_large"
         app:layout_constraintEnd_toStartOf="@id/text_currency"
         app:layout_constraintTop_toTopOf="@id/text_total_goal"
         tools:text="37,500" />
@@ -54,9 +54,9 @@
         android:id="@+id/text_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="THB"
+        android:text="@string/goal_saving_currency"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_medium"
         app:layout_constraintBottom_toBottomOf="@id/text_current_saving"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
