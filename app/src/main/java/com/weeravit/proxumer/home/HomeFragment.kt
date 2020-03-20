@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.weeravit.proxumer.R
 import com.weeravit.proxumer.home.banner.BannerModel
@@ -24,6 +25,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun initInstances() {
+        ViewCompat.setNestedScrollingEnabled(nested_scroll_view, true)
+
         val goalSavingList = arrayListOf(
             GoalSavingModel(
                 imageGoalType = "",
@@ -72,6 +75,10 @@ class HomeFragment : Fragment() {
         goal_saving_layout.setGoalSaving(goalSavingList)
         best_offer_layout.setBanner(bestOfferBanner)
         suggest_for_you_layout.setBanner(suggestForYou)
+
+        button_new_goal.setOnClickListener {
+
+        }
     }
 
     companion object {
