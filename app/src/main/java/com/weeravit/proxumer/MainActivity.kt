@@ -1,23 +1,26 @@
 package com.weeravit.proxumer
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.ncapdevi.fragnav.FragNavController
 import com.weeravit.proxumer.achievement.AchievementFragment
 import com.weeravit.proxumer.home.HomeFragment
+import com.weeravit.proxumer.profile.NetworkDatasource
 import com.weeravit.proxumer.profile.ProfileFragment
+import com.weeravit.proxumer.profile.ProfileViewModel
 import com.weeravit.proxumer.wallet.WalletFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), FragNavController.RootFragmentListener {
-
+    private val profileViewModel by viewModels<ProfileViewModel>()
     private val fragNavController by lazy {
         FragNavController(supportFragmentManager, R.id.container)
     }
-
     private val fragments by lazy {
         listOf(
             HomeFragment.newInstance(),
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity(), FragNavController.RootFragmentListener
 
         initFragments()
         initBottomNavigation()
+        initViewModel()
     }
 
     private fun initFragments() {
@@ -70,13 +74,18 @@ class MainActivity : AppCompatActivity(), FragNavController.RootFragmentListener
             inactiveColor = ContextCompat.getColor(this@MainActivity, R.color.inactive_tab)
             isForceTint = true
             titleState = AHBottomNavigation.TitleState.ALWAYS_HIDE
-            setNotification("1", 3)
 
             setOnTabSelectedListener { position, _ ->
                 fragNavController.switchTab(position)
                 true
             }
         }
+    }
+
+    private fun initViewModel() {
+        profileViewModel.notification.observe(this, Observer {
+            bottom_navigation.setNotification(it, 3)
+        })
     }
 
     override val numberOfRootFragments: Int
