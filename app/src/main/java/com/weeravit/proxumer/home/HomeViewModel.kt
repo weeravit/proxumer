@@ -20,8 +20,9 @@ class HomeViewModel : ViewModel() {
 
     fun getGoalSavingList() {
         viewModelScope.launch {
-            val list = goalSavingUsecase.getGoalSavingList()
-            goalSavingList.postValue(list)
+            goalSavingUsecase.getGoalSavingList().let {
+                goalSavingList.postValue(it)
+            }
         }
     }
 
