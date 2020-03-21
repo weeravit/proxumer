@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.weeravit.proxumer.R
-import com.weeravit.proxumer.common.EqualSpacingItemDecoration
+import com.weeravit.proxumer.common.GridItemDecoration
 import kotlinx.android.synthetic.main.fragment_achievement.*
 
 class AchievementFragment : Fragment() {
@@ -35,10 +35,9 @@ class AchievementFragment : Fragment() {
                 list_achievement.apply {
                     layoutManager = GridLayoutManager(this@AchievementFragment.context, 3)
                     addItemDecoration(
-                        EqualSpacingItemDecoration(
-                            context = context,
-                            dimenRes = R.dimen.spacing_medium,
-                            displayMode = EqualSpacingItemDecoration.GRID
+                        GridItemDecoration(
+                            context = requireContext(),
+                            itemOffsetId = R.dimen.spacing_small
                         )
                     )
                     adapter =
@@ -51,6 +50,7 @@ class AchievementFragment : Fragment() {
             getAchievement()
         }
     }
+
 
     companion object {
         fun newInstance() =

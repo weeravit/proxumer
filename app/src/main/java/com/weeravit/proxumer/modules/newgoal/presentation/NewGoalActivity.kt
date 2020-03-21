@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.weeravit.proxumer.R
-import com.weeravit.proxumer.common.EqualSpacingItemDecoration
+import com.weeravit.proxumer.common.GridItemDecoration
 import kotlinx.android.synthetic.main.activity_new_goal.*
 
 class NewGoalActivity : AppCompatActivity() {
@@ -24,10 +24,9 @@ class NewGoalActivity : AppCompatActivity() {
                 list_new_goal_type.apply {
                     layoutManager = GridLayoutManager(this@NewGoalActivity, 3)
                     addItemDecoration(
-                        EqualSpacingItemDecoration(
+                        GridItemDecoration(
                             context = this@NewGoalActivity,
-                            dimenRes = R.dimen.spacing_medium,
-                            displayMode = EqualSpacingItemDecoration.GRID
+                            itemOffsetId = R.dimen.spacing_small
                         )
                     )
                     adapter =
