@@ -13,7 +13,7 @@
 
         <com.weeravit.proxumer.home.goalsaving.GoalSavingLayout
             android:id="@+id/goal_saving_layout"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_new_goal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_medium"
             android:layout_marginTop="@dimen/spacing_medium"
@@ -34,7 +34,7 @@
 
         <com.weeravit.proxumer.home.banner.BannerLayout
             android:id="@+id/best_offer_layout"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,11 +43,18 @@
 
         <com.weeravit.proxumer.home.banner.BannerLayout
             android:id="@+id/suggest_for_you_layout"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/best_offer_layout" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/suggest_for_you_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
