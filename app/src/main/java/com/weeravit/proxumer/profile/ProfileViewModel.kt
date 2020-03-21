@@ -7,13 +7,9 @@ class ProfileViewModel() : ViewModel() {
     private val profileUsecase by lazy {
         ProfileUsecase(NetworkDatasource())
     }
-    val notification: MutableLiveData<String> by lazy {
-        MutableLiveData<String>().also {
-            listenNotification()
-        }
-    }
+    val notification = MutableLiveData<String>()
 
-    private fun listenNotification() {
+    fun listenNotification() {
         profileUsecase.listenNotification {
             val value = notification.value ?: "0"
             val count = value.toInt() + 1

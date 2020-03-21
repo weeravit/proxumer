@@ -83,9 +83,13 @@ class MainActivity : AppCompatActivity(), FragNavController.RootFragmentListener
     }
 
     private fun initViewModel() {
-        profileViewModel.notification.observe(this, Observer {
-            bottom_navigation.setNotification(it, 3)
-        })
+        profileViewModel.apply {
+            notification.observe(this@MainActivity, Observer {
+                bottom_navigation.setNotification(it, 3)
+            })
+
+            listenNotification()
+        }
     }
 
     override val numberOfRootFragments: Int
