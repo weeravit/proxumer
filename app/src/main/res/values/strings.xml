@@ -11,4 +11,7 @@
     <string name="goal_saving_all_saving">All Saving</string>
     <string name="goal_saving_currency">THB</string>
     <string name="new_goal">+ New Goal</string>
+    <string name="new_goal_text_what_your_goal">What your Goal</string>
+    <string name="new_goal_hint_amount">Amount</string>
+    <string name="new_goal_hint_select_date">Select Date</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.weeravit.proxumer.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.weeravit.proxumer.R
 import com.weeravit.proxumer.home.banner.BannerModel
 import com.weeravit.proxumer.home.goalsaving.GoalSavingModel
+import com.weeravit.proxumer.newgoal.NewGoalActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -77,7 +79,7 @@ class HomeFragment : Fragment() {
         suggest_for_you_layout.setBanner(suggestForYou)
 
         button_new_goal.setOnClickListener {
-
+            startActivity(Intent(context, NewGoalActivity::class.java))
         }
     }
 
