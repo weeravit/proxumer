@@ -14,4 +14,6 @@
     <string name="new_goal_text_what_your_goal">What your Goal</string>
     <string name="new_goal_hint_amount">Amount</string>
     <string name="new_goal_hint_select_date">Select Date</string>
+
+    <string name="achievement_level">Level %1$d</string>
 </resources>
