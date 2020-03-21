@@ -1,46 +1,40 @@
 package com.weeravit.proxumer.newgoal
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.weeravit.proxumer.R
+import com.weeravit.proxumer.utils.EqualSpacingItemDecoration
 import kotlinx.android.synthetic.main.activity_new_goal.*
 
 class NewGoalActivity : AppCompatActivity() {
+    private val newGoalViewModel by viewModels<NewGoalViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_goal)
-        initInstances()
+        initViewModel()
     }
 
-    private fun initInstances() {
-        val newGoalTypeList = arrayListOf(
-            NewGoalTypeModel(
-                title = "Travel",
-                imageUrl = "https://cdn.urldecoder.org/assets/images/url-fb.png"
-            ),
-            NewGoalTypeModel(
-                title = "Education",
-                imageUrl = "https://cdn.urldecoder.org/assets/images/url-fb.png"
-            ),
-            NewGoalTypeModel(
-                title = "Invest",
-                imageUrl = "https://cdn.urldecoder.org/assets/images/url-fb.png"
-            ),
-            NewGoalTypeModel(
-                title = "Clothing",
-                imageUrl = "https://cdn.urldecoder.org/assets/images/url-fb.png"
-            ),
-            NewGoalTypeModel(
-                title = "Education",
-                imageUrl = "https://cdn.urldecoder.org/assets/images/url-fb.png"
-            )
-        )
+    private fun initViewModel() {
+        newGoalViewModel.apply {
+            goalTypeList.observe(this@NewGoalActivity, Observer {
+                list_new_goal_type.apply {
+                    layoutManager = GridLayoutManager(this@NewGoalActivity, 3)
+                    addItemDecoration(
+                        EqualSpacingItemDecoration(
+                            context = this@NewGoalActivity,
+                            dimenRes = R.dimen.spacing_medium,
+                            displayMode = EqualSpacingItemDecoration.GRID
+                        )
+                    )
+                    adapter = NewGoalTypeAdapter(it)
+                }
+            })
 
-        list_new_goal_type.apply {
-            layoutManager = GridLayoutManager(this@NewGoalActivity, 3)
-            adapter = NewGoalTypeAdapter(newGoalTypeList)
+            getGoalTypeList()
         }
     }
 }
