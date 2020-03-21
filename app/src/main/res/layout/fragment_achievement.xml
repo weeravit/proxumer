@@ -12,6 +12,7 @@
         android:layout_height="@dimen/appbar_height"
         android:background="@color/yellow"
         android:padding="@dimen/spacing_large"
+        app:layout_constraintBottom_toTopOf="@id/list_achievement"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -55,11 +56,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_achievement"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="true"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
         android:orientation="horizontal"
-        android:padding="@dimen/spacing_large"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_achievement"
