@@ -7,13 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.weeravit.proxumer.R
-import com.weeravit.proxumer.home.banner.BannerModel
-import com.weeravit.proxumer.home.goalsaving.GoalSavingModel
 import com.weeravit.proxumer.newgoal.NewGoalActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
+    private val homeViewModel by viewModels<HomeViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,62 +27,30 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initInstances()
+        initViewModel()
     }
 
     private fun initInstances() {
         ViewCompat.setNestedScrollingEnabled(nested_scroll_view, true)
 
-        val goalSavingList = arrayListOf(
-            GoalSavingModel(
-                imageGoalType = "",
-                currentSaving = 20000.0,
-                goalSaving = 16500.0,
-                titleSaving = "ไปเที่ยวญี่ปุ่น",
-                feelingSaving = "Good",
-                daysLeft = 45
-            ),
-            GoalSavingModel(
-                imageGoalType = "",
-                currentSaving = 500.0,
-                goalSaving = 6000.0,
-                titleSaving = "ซื้อกองทุนรวม",
-                feelingSaving = "Unhappy",
-                daysLeft = 20
-            ),
-            GoalSavingModel(
-                imageGoalType = "",
-                currentSaving = 2000.0,
-                goalSaving = 5000.0,
-                titleSaving = "ไปทะเล",
-                feelingSaving = "Unhappy",
-                daysLeft = 10
-            )
-        )
-        val bestOfferBanner = BannerModel(
-            title = "Best Offer",
-            images = arrayListOf(
-                "https://cdn.urldecoder.org/assets/images/url-fb.png",
-                "https://cdn.urldecoder.org/assets/images/url-fb.png",
-                "https://cdn.urldecoder.org/assets/images/url-fb.png",
-                "https://cdn.urldecoder.org/assets/images/url-fb.png"
-            )
-        )
-        val suggestForYou = BannerModel(
-            title = "Suggest for you",
-            images = arrayListOf(
-                "https://cdn.urldecoder.org/assets/images/url-fb.png",
-                "https://cdn.urldecoder.org/assets/images/url-fb.png",
-                "https://cdn.urldecoder.org/assets/images/url-fb.png",
-                "https://cdn.urldecoder.org/assets/images/url-fb.png"
-            )
-        )
-
-        goal_saving_layout.setGoalSaving(goalSavingList)
-        best_offer_layout.setBanner(bestOfferBanner)
-        suggest_for_you_layout.setBanner(suggestForYou)
-
         button_new_goal.setOnClickListener {
             startActivity(Intent(context, NewGoalActivity::class.java))
+        }
+    }
+
+    private fun initViewModel() {
+        homeViewModel.apply {
+            goalSavingList.observe(viewLifecycleOwner, Observer {
+                goal_saving_layout.setGoalSaving(it)
+            })
+
+            bannerList.observe(viewLifecycleOwner, Observer {
+                best_offer_layout.setBanner(it[0])
+                suggest_for_you_layout.setBanner(it[1])
+            })
+
+            getGoalSavingList()
+            getBannerList()
         }
     }
 
