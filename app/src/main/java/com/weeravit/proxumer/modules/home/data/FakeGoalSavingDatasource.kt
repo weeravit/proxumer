@@ -12,8 +12,8 @@ class FakeGoalSavingDatasource :
             val goalSavingList = arrayListOf(
                 GoalSavingModel(
                     imageGoalType = "",
-                    currentSaving = 20000.0,
-                    goalSaving = 16500.0,
+                    currentSaving = 16500.0,
+                    goalSaving = 20000.0,
                     titleSaving = "ไปเที่ยวญี่ปุ่น",
                     feelingSaving = "Good",
                     daysLeft = 45

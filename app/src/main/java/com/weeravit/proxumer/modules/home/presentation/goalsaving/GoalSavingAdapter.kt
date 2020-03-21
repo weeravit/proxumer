@@ -35,7 +35,7 @@ class GoalSavingAdapter(private val items: ArrayList<GoalSavingModel>) :
             itemView.apply {
                 text_current_saving.text = "${item.currentSaving}"
                 text_goal_saving.text = "${item.goalSaving}"
-                progress_saving.progress = 50
+                progress_saving.progress = item.savingProgress
                 text_title_saving.text = item.titleSaving
                 text_feeling_saving.text = item.feelingSaving
                 text_days_left_saving.text =
