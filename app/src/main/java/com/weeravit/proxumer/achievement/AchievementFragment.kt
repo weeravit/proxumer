@@ -1,10 +1,11 @@
-package com.weeravit.proxumer
+package com.weeravit.proxumer.achievement
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.weeravit.proxumer.R
 
 class AchievementFragment : Fragment() {
     override fun onCreateView(
