@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.newgoal.presentation.NewGoalActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_what_your_goal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/appbar_height"
+        android:background="@color/yellow"
+        android:padding="@dimen/spacing_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_what_your_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="@string/new_goal_text_what_your_goal"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toTopOf="@id/edittext_what_your_goal"
+            app:layout_constraintStart_toStartOf="@id/edittext_what_your_goal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edittext_what_your_goal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:color/white"
+            android:padding="@dimen/spacing_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_what_your_goal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_large">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_new_goal_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_new_goal_type" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edittext_amount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/new_goal_edittext_height"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:background="@drawable/bg_form_rectangle"
+                android:hint="@string/new_goal_hint_amount"
+                android:padding="@dimen/spacing_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_new_goal_type" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edittext_select_date"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/new_goal_edittext_height"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:background="@drawable/bg_form_rectangle"
+                android:hint="@string/new_goal_hint_select_date"
+                android:padding="@dimen/spacing_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edittext_amount" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

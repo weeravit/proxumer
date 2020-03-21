@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Proxumer</string>
+
+    <string name="home_tab">Home</string>
+    <string name="wallet_tab">Wallet</string>
+    <string name="achievement_tab">Achievement</string>
+    <string name="profile_tab">Profile</string>
+
+    <string name="goal_saving_total">%1$d Goals</string>
+    <string name="goal_saving_days_left">%1$d days left</string>
+    <string name="goal_saving_all_saving">All Saving</string>
+    <string name="goal_saving_currency">THB</string>
+    <string name="new_goal">+ New Goal</string>
+    <string name="new_goal_text_what_your_goal">What your Goal</string>
+    <string name="new_goal_hint_amount">Amount</string>
+    <string name="new_goal_hint_select_date">Select Date</string>
+
+    <string name="achievement_level">Level %1$d</string>
 </resources>
