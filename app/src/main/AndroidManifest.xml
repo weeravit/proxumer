@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".newgoal.NewGoalActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.weeravit.proxumer.modules.newgoal.presentation.NewGoalActivity"></activity>
+        <activity android:name=".modules.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
