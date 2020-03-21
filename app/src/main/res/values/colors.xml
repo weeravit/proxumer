@@ -7,7 +7,8 @@
     <color name="black">#414141</color>
     <color name="green">#217710</color>
     <color name="yellow">#E6A333</color>
+    <color name="gray">#9C9C9C</color>
 
     <color name="active_tab">@color/colorPrimary</color>
-    <color name="inactive_tab">#9C9C9C</color>
+    <color name="inactive_tab">@color/gray</color>
 </resources>

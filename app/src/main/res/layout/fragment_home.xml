@@ -28,6 +28,8 @@
             android:layout_marginEnd="@dimen/spacing_medium"
             android:text="@string/new_goal"
             android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:background="@drawable/btn_selector"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/goal_saving_layout" />
